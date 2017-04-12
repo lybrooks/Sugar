@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/view1"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/main_orange">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/back_nomal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="140dp"
+            android:text="账户注册"
+            android:textSize="18dp" />
+    </LinearLayout>
+
+    <EditText
+
+        android:id="@+id/Et_UserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:drawableRight="@mipmap/icon_account"
+        android:hint="用户名"
+        android:singleLine="true"
+        android:textSize="15dp" />
+
+    <EditText
+        android:id="@+id/ET_Nick"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:drawableRight="@mipmap/icon_account"
+        android:hint="昵称"
+        android:singleLine="true"
+        android:textSize="15dp" />
+
+    <EditText
+        android:id="@+id/Et_Password_regist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:drawableRight="@mipmap/icon_pwd"
+        android:hint="密码"
+        android:inputType="textPassword"
+        android:singleLine="true"
+        android:textSize="15dp" />
+
+    <EditText
+        android:id="@+id/ET_rePassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:drawableRight="@mipmap/icon_pwd"
+        android:hint="确认密码"
+        android:inputType="textPassword"
+        android:singleLine="true"
+        android:textSize="15dp" />
+
+    <Button
+        android:id="@+id/btn_regist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/transparent"
+        android:text="完成注册"
+        android:textSize="15dp" />
+
+</LinearLayout>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/good_detail_bg_white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/LL_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/main_orange"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/back_nomal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_horizontal"
+                android:text="商品详情"
+                android:textSize="15dp" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <view.widget.SlideAutoLoopView
+        android:id="@+id/SALV_goods_dials"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:background="@color/good_detail_bg_white" />
+
+    <view.widget.FlowIndicator
+        android:id="@+id/FID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        app:focus_color="@color/good_detaul_flow_indicator_focus"
+        app:normal_color="#f56e07"
+        app:r="4dp"
+        app:space="2dp" />
+
+
+    <RelativeLayout
+        android:id="@+id/LL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_good_EnglishName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_good_prize"
+            android:layout_marginLeft="70dp"
+            android:text="英文名"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_good_deails_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_good_EnglishName"
+            android:layout_marginLeft="70dp"
+            android:text="商品名"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_good_prize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="价格"
+            android:textColor="#e40f0f"
+            android:textSize="25sp" />
+
+
+        <ImageView
+            android:id="@+id/iv_share"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="3dp"
+            android:src="@mipmap/share_good" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/iv_share"
+            android:layout_marginRight="10dp"
+            android:text="分享"
+            android:textColor="#797777" />
+    </RelativeLayout>
+
+    <WebView
+        android:id="@+id/tv_goods_dsc"
+        android:layout_width="match_parent"
+        android:layout_height="110dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <ImageView
+            android:id="@+id/iv_collect"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignTop="@+id/iv_main_cart"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="40dp"
+            android:layout_toLeftOf="@+id/textView"
+            android:layout_toStartOf="@+id/textView"
+            android:src="@mipmap/coolected" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_collect"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_toLeftOf="@+id/textView"
+            android:text="收藏宝贝" />
+
+        <ImageView
+            android:id="@+id/iv_main_cart"
+            style="@style/menu_item_style_cart"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="5dp"
+            android:src="@mipmap/gouwuche" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/iv_main_cart"
+            android:layout_marginRight="5dp"
+            android:text="加入购物车" />
+
+    </RelativeLayout>
+
+</LinearLayout>
