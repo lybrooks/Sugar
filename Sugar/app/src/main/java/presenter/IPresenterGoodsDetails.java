@@ -2,8 +2,6 @@ package presenter;
 
 import android.content.Context;
 
-import model.net.IModelBase;
-
 /**
  * All rights Reserved, Designed By www.tydic.com
  *
@@ -16,6 +14,7 @@ import model.net.IModelBase;
  * @Copyright: ${year} www.tydic.com Inc. All rights reserved.
  */
 
-public interface IPresenterNewGoods extends IModelBase {
-    void downloadGoodsList(Context context, int pageId, int action);
+public interface IPresenterGoodsDetails<T> extends IPresenterBaseImage {
+
+    void downloadGoodsDetails(Context context, int goodsId);
 }

@@ -53,7 +53,9 @@ public class PersonAdapter extends RecyclerView.Adapter {
     private final int Type_Item = 2;
 
     private String[] Titles = new String[]{"个人信息", "宝贝收藏", "退出"};
-
+    private int[] Img = new int[]{R.mipmap.personal,
+            R.mipmap.collect,
+            R.mipmap.quit};
 
     public void updateMessage(UserBean userBean) {
         this.mBean = userBean;
@@ -93,6 +95,7 @@ public class PersonAdapter extends RecyclerView.Adapter {
         if (holder instanceof ItemHolder && position > 0) {
             ItemHolder holder2 = (ItemHolder) holder;
             holder2.title.setText(Titles[position - 1]);
+            holder2.imageView.setImageResource(Img[position - 1]);
             holder2.title.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -147,9 +150,11 @@ public class PersonAdapter extends RecyclerView.Adapter {
 
     class ItemHolder extends RecyclerView.ViewHolder {
         TextView title;
+        ImageView imageView;
 
         public ItemHolder(View itemView) {
             super(itemView);
+            imageView = (ImageView) itemView.findViewById(R.id.iv_set);
             title = (TextView) itemView.findViewById(R.id.tv_title);
         }
     }

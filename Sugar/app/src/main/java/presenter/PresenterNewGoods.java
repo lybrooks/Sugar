@@ -24,9 +24,13 @@ public class PresenterNewGoods implements IPresenterNewGoods {
     INewGoodsView<NewGoodsBean[]> mNewGoodsView;
 
 
+    @Override
+    public void realse() {
+
+    }
 
     @Override
-    public void downloadGoodsList(Context context, int catId, int pageId, final int action) {
+    public void downloadGoodsList(Context context, int pageId, final int action) {
         mModel.downloadNewGoods(context, pageId, new OkHttpUtils.OnCompleteListener<NewGoodsBean[]>() {
             @Override
             public void onSuccess(NewGoodsBean[] result) {
@@ -38,11 +42,5 @@ public class PresenterNewGoods implements IPresenterNewGoods {
                 mNewGoodsView.showError(error);
             }
         });
-
-    }
-
-    @Override
-    public void realse() {
-
     }
 }

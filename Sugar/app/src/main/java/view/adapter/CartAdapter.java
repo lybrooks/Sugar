@@ -181,7 +181,7 @@ public class CartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         TextView tvGoodPrize;
         @Bind(R.id.cb_checkBox)
         CheckBox mCbCartSelested;
-        IModelCart modelCart;
+        IModelCart modelCart = new ModelCart();
 
 
         ContactViewHolder(View view) {
@@ -201,7 +201,7 @@ public class CartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         @OnClick(R.id.iv_addcart)
         public void addCart() {
-            modelCart = new ModelCart();
+
             int position = (int) ivAddcart.getTag();
             final CartBean cartBean = contactList.get(position);
             modelCart.updateCar(context, cartBean.getId(), cartBean.getCount() + 1, new OkHttpUtils.OnCompleteListener<MessageBean>() {
@@ -211,7 +211,7 @@ public class CartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                         cartBean.setCount(cartBean.getCount() + 1);
                         context.sendBroadcast(new Intent(I.BROADCAST_UPDATE_CART));
                         tvGoodCount.setText("(" + cartBean.getCount() + ")");
-                      //  tvGoodPrize.setText("￥" + cartBean.getCount() * getPrice(cartBean.getGoods().getCurrencyPrice()));
+                        //  tvGoodPrize.setText("￥" + cartBean.getCount() * getPrice(cartBean.getGoods().getCurrencyPrice()));
                     }
                 }
 

@@ -18,13 +18,13 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.sugar.I;
 import cn.sugar.bean.NewGoodsBean;
-import view.adapter.BoutiqueAdapter;
+import day.sugar.R;
 import model.net.IModleNewGoods;
 import model.net.NewGoods;
 import model.utils.ConvertUtils;
 import model.utils.MFGT;
 import model.utils.OkHttpUtils;
-import day.sugar.R;
+import view.adapter.BoutiqueAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -43,7 +43,9 @@ public class Fragment_newgoods extends Fragment {
     TextView tvRefresh;
 
     IModleNewGoods newGoods;
-    
+
+   // IPresenterNewGoods presenterNewGoods;
+
 
     public Fragment_newgoods() {
     }
@@ -62,6 +64,8 @@ public class Fragment_newgoods extends Fragment {
 
     private void initView(View view) {
         newGoods = new NewGoods();
+//        presenterNewGoods = new PresenterNewGoods();
+//        presenterNewGoods.downloadGoodsList(getContext(),PageId,I.ACTION_DOWNLOAD);
 
         srl = (SwipeRefreshLayout) view.findViewById(R.id.srl);
         mrv = (RecyclerView) view.findViewById(R.id.fag_rlv_newgoods);

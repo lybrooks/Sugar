@@ -18,8 +18,6 @@ import cn.sugar.bean.AlbumsBean;
 import cn.sugar.bean.GoodsDetailsBean;
 import cn.sugar.bean.MessageBean;
 import cn.sugar.bean.UserBean;
-import view.widget.FlowIndicator;
-import view.widget.SlideAutoLoopView;
 import day.sugar.R;
 import model.net.IModelCart;
 import model.net.IModelCollections;
@@ -30,6 +28,9 @@ import model.net.NewGoods;
 import model.utils.CommonUtils;
 import model.utils.MFGT;
 import model.utils.OkHttpUtils;
+import presenter.IPresenterGoodsDetails;
+import view.widget.FlowIndicator;
+import view.widget.SlideAutoLoopView;
 
 
 public class Deails extends AppCompatActivity {
@@ -57,7 +58,7 @@ public class Deails extends AppCompatActivity {
     ImageView ivCollect;
 
     boolean isCollected;
-
+    IPresenterGoodsDetails mPresenter;
     IModelCollections collections;
     IModelCart cart;
     IModleNewGoods newGoods;
@@ -74,7 +75,12 @@ public class Deails extends AppCompatActivity {
         collections = new ModelCollections();
         cart = new ModelCart();
         newGoods = new NewGoods();
+        initView();
         initData();
+    }
+
+    private void initView() {
+      //  mPresenter=new PresenterGoodsDetails<>(this);
     }
 
     private void initData() {
