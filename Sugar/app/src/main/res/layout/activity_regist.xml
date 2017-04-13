@@ -27,10 +27,11 @@
     </LinearLayout>
 
     <EditText
-
         android:id="@+id/Et_UserName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
         android:drawableRight="@mipmap/icon_account"
         android:hint="用户名"
@@ -38,6 +39,8 @@
         android:textSize="15dp" />
 
     <EditText
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:id="@+id/ET_Nick"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,6 +51,8 @@
         android:textSize="15dp" />
 
     <EditText
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:id="@+id/Et_Password_regist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -66,6 +71,8 @@
         android:drawableRight="@mipmap/icon_pwd"
         android:hint="确认密码"
         android:inputType="textPassword"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:singleLine="true"
         android:textSize="15dp" />
 
@@ -76,7 +83,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:layout_marginTop="10dp"
-        android:background="@android:color/transparent"
+        android:background="#20f95808"
         android:text="完成注册"
         android:textSize="15dp" />
 

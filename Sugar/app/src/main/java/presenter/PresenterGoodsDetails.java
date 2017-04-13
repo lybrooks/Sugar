@@ -5,6 +5,7 @@ import android.content.Context;
 import cn.sugar.bean.GoodsDetailsBean;
 import model.net.IModleNewGoods;
 import model.net.NewGoods;
+import model.utils.OkHttpUtils;
 import view.views.IGoodsDetailsView;
 
 /**
@@ -28,8 +29,19 @@ public class PresenterGoodsDetails<T> extends PresenterBaseImage implements IPre
         mModel = new NewGoods();
         mGoodsDetailsView = goodsDetailsView;
     }
+
     @Override
     public void downloadGoodsDetails(Context context, int goodsId) {
+        mModel.downloadGoodsDetail(context, goodsId, new OkHttpUtils.OnCompleteListener<GoodsDetailsBean>() {
+            @Override
+            public void onSuccess(GoodsDetailsBean result) {
+                mGoodsDetailsView.showResult(result);
+            }
 
+            @Override
+            public void onError(String error) {
+                mGoodsDetailsView.showError(error);
+            }
+        });
     }
 }

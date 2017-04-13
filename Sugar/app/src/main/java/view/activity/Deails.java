@@ -80,7 +80,8 @@ public class Deails extends AppCompatActivity {
     }
 
     private void initView() {
-      //  mPresenter=new PresenterGoodsDetails<>(this);
+//        mPresenter = new PresenterGoodsDetails<>(this);
+//        mPresenter.downloadGoodsDetails(this, goodId);
     }
 
     private void initData() {
@@ -146,6 +147,7 @@ public class Deails extends AppCompatActivity {
                                 CommonUtils.showShortToast("添加购物车失败");
                             }
                         }
+
                         @Override
                         public void onError(String error) {
                             CommonUtils.showShortToast("添加失败");
@@ -269,4 +271,16 @@ public class Deails extends AppCompatActivity {
             });
         }
     }
+
+//    @Override
+//    public void showError(String error) {
+//
+//    }
+//
+//    @Override
+//    public void showResult(GoodsDetailsBean result) {
+//        if (result != null) {
+//            showGoodsDetails(result);
+//        }
+//    }
 }

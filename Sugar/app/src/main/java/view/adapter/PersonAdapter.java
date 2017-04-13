@@ -2,6 +2,8 @@ package view.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,11 +14,11 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import cn.sugar.bean.UserBean;
-import view.activity.SugarApplication;
 import day.sugar.R;
 import model.utils.ImageLoader;
 import model.utils.MFGT;
 import model.utils.SharedPerfenceUtils;
+import view.activity.SugarApplication;
 
 /**
  * All rights Reserved, Designed By www.tydic.com
@@ -107,7 +109,8 @@ public class PersonAdapter extends RecyclerView.Adapter {
                             MFGT.gotoCollection((Activity) getContext());
                             break;
                         case 2:
-                            logout();
+                            showNormalDialog();
+
                             break;
 
 
@@ -116,6 +119,32 @@ public class PersonAdapter extends RecyclerView.Adapter {
             });
         }
 
+    }
+
+    private void showNormalDialog() {
+
+        final AlertDialog.Builder normalDialog =
+                new AlertDialog.Builder(context);
+        normalDialog.setIcon(R.mipmap.unhappy);
+        normalDialog.setTitle("是否离开sugar");
+        // normalDialog.setMessage("");
+        normalDialog.setPositiveButton("再看看",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //   logout();
+
+                    }
+                });
+        normalDialog.setNegativeButton("确定",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        logout();
+                    }
+                });
+        // 显示
+        normalDialog.show();
     }
 
     private void logout() {

@@ -3,6 +3,8 @@ package view.activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -13,18 +15,16 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.sugar.bean.Result;
 import cn.sugar.bean.UserBean;
+import day.sugar.R;
 import model.net.IModelLogin;
 import model.net.ModelLogin;
 import model.utils.CommonUtils;
 import model.utils.MFGT;
 import model.utils.OkHttpUtils;
 import model.utils.ResultUtils;
-import day.sugar.R;
 
-public class Regist extends BaseActivity {
+public class Regist extends AppCompatActivity {
 
-    @Bind(R.id.iv_back)
-    ImageView ivBack;
     @Bind(R.id.Et_UserName)
     EditText EtUserName;
     @Bind(R.id.ET_Nick)
@@ -42,6 +42,8 @@ public class Regist extends BaseActivity {
     static String password;
     static String repassword;
     IModelLogin modelLogin;
+    @Bind(R.id.iv_back)
+    ImageView ivBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,16 @@ public class Regist extends BaseActivity {
         setContentView(R.layout.activity_regist);
         ButterKnife.bind(this);
         modelLogin = new ModelLogin();
+        initListener();
+    }
+
+    private void initListener() {
+        ivBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void initData() {
@@ -120,4 +132,5 @@ public class Regist extends BaseActivity {
         initData();
 
     }
+
 }

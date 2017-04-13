@@ -65,7 +65,7 @@
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
         android:layout_marginTop="10dp"
-        android:background="#a7d74607"
+        android:background="#20f95808"
         android:text="@string/sugar"
         android:textSize="18dp" />
 <!--
