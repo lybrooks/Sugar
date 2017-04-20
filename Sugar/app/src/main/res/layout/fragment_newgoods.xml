@@ -13,15 +13,16 @@
             android:id="@+id/tv_refresh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="刷新中..."
+            android:text="@string/refresh"
             android:layout_gravity="center_horizontal"
             android:visibility="gone"
             />
+
         <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/fag_rlv_newgoods"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context="view.fragment.Fragment_newgoods"></android.support.v7.widget.RecyclerView>
+            tools:context="view.fragment.Fragment_newgoods" />
     </LinearLayout>
 </android.support.v4.widget.SwipeRefreshLayout>

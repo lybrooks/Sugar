@@ -47,7 +47,7 @@
             android:layout_weight="0.6"
             android:background="#a7d74607"
             android:text="结账"
-            android:textSize="15dp" />
+            android:textSize="15sp" />
     </LinearLayout>
 
 
@@ -58,50 +58,62 @@
         android:layout_above="@+id/layout_cart"
         android:background="@color/fragment_bg">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:background="#a7d74607"
-                android:gravity="center"
-                android:text="全部订单"
-                android:textColor="#d2c1b4"
-                android:textSize="15dp" />
-
-            <TextView
-                android:id="@+id/tv_refresh"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="刷新中..."
-                android:visibility="gone" />
-
-            <TextView
-                android:id="@+id/tv_nothing"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal|center_vertical"
-                android:text="购物车空空如也"
-                android:textColor="@color/main_orange"
-                android:textSize="18dp"
-                android:visibility="gone" />
+                android:orientation="vertical">
 
-            <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:id="@+id/fag_rlv_newgoods"
-                android:layout_width="382dp"
-                android:layout_height="match_parent"
-                tools:context="view.fragment.Fragment_newgoods" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="#a7d74607"
+                    android:gravity="center"
+                    android:text="全部订单"
+                    android:textColor="#d2c1b4"
+                    android:textSize="15dp" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/shop_bg" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_refresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="刷新中..."
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_nothing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:text="购物车空空如也"
+                    android:textColor="@color/main_orange"
+                    android:textSize="18sp"
+                    android:visibility="gone" />
+
+                <android.support.v7.widget.RecyclerView
+
+                    android:id="@+id/fag_rlv_newgoods"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/carthelp"
+                    android:textColor="#a9fd6100"
+                    android:textSize="15sp" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/cartrlv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </ScrollView>
     </android.support.v4.widget.SwipeRefreshLayout>
 
 

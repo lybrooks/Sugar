@@ -27,6 +27,15 @@
             android:textSize="15dp" />
     </LinearLayout>
 
-    <include layout="@layout/fragment_newgoods"></include>
+    <include layout="@layout/fragment_newgoods" />
+    <RadioButton
+        android:id="@+id/new_goods"
+        android:button="@null"
+        android:drawableTop="@drawable/selector_menu_item_new_good"
+        android:gravity="center_horizontal"
+        android:checked="true"
+        style="@style/menu_item_style"
+        android:textColor="@color/main_botton_text_color"
+        />
 
 </LinearLayout>
