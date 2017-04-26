@@ -38,6 +38,7 @@
     </FrameLayout>
 
     <android.support.v7.widget.RecyclerView
+        android:fitsSystemWindows="true"
         android:id="@+id/rlv_person"
         android:layout_width="200dp"
         android:layout_height="match_parent"

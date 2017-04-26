@@ -25,6 +25,8 @@ import model.utils.ConvertUtils;
 import model.utils.MFGT;
 import model.utils.OkHttpUtils;
 import view.adapter.BoutiqueAdapter;
+import view.widget.FlowIndicator;
+import view.widget.LoopView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -43,8 +45,14 @@ public class Fragment_newgoods extends Fragment {
     TextView tvRefresh;
 
     IModleNewGoods newGoods;
+    @Bind(R.id.newgood_slv)
+    LoopView newgoodSlv;
+    @Bind(R.id.fid)
+    FlowIndicator fid;
+    @Bind(R.id.text_view)
+    TextView mtextView;
 
-   // IPresenterNewGoods presenterNewGoods;
+    // IPresenterNewGoods presenterNewGoods;
 
 
     public Fragment_newgoods() {
@@ -57,8 +65,8 @@ public class Fragment_newgoods extends Fragment {
         View view = inflater.inflate(R.layout.fragment_newgoods, container, false);
         initView(view);
         initData(I.ACTION_DOWNLOAD, PageId);
-        setListener();
         ButterKnife.bind(this, view);
+        setListener();
         return view;
     }
 
@@ -119,6 +127,12 @@ public class Fragment_newgoods extends Fragment {
 
 
     private void setListener() {
+        int[] img = new int[]{R.drawable.lal1, R.drawable.lala2, R.drawable.lal3, R.drawable.lal4};
+        newgoodSlv.setVisibility(View.VISIBLE);
+        fid.setVisibility(View.VISIBLE);
+        mtextView.setVisibility(View.VISIBLE);
+        newgoodSlv.startPlayLoop(fid, img, 4);
+        mrv.setNestedScrollingEnabled(false);
         srl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -169,8 +183,6 @@ public class Fragment_newgoods extends Fragment {
         super.onDestroyView();
         ButterKnife.unbind(this);
     }
-
-
 
 
 }

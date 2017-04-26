@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.makeramen.roundedimageview.RoundedImageView;
@@ -125,17 +126,28 @@ public class CartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         GoodsDetailsBean goods = goodsBean.getGoods();
         if (goodsBean != null) {
             count = goodsBean.getCount();
-            contactViewHolder.tvGoodCount.setText("(" + count + ")");
+            contactViewHolder.tvGoodCount.setText("×" + count);
             contactViewHolder.tvGoodName.setText(goods.getGoodsName());
             contactViewHolder.tvGoodPrize.setText(goods.getCurrencyPrice());
             ImageLoader.downloadImg(context, contactViewHolder.ivGoodsImg, goods.getGoodsThumb());
             contactViewHolder.ivAddcart.setTag(position);
+
             contactViewHolder.mCbCartSelested.setChecked(false);
             contactViewHolder.mCbCartSelested.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     goodsBean.setChecked(isChecked);
                     getContext().sendBroadcast(new Intent(I.BROADCAST_UPDATE_CART));
+                }
+            });
+            contactViewHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (contactViewHolder.mCbCartSelested.isChecked()) {
+                        contactViewHolder.mCbCartSelested.setChecked(false);
+                    } else {
+                        contactViewHolder.mCbCartSelested.setChecked(true);
+                    }
                 }
             });
         }
@@ -183,10 +195,13 @@ public class CartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         CheckBox mCbCartSelested;
         IModelCart modelCart = new ModelCart();
 
+        LinearLayout linearLayout;
+
 
         ContactViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
+            linearLayout = (LinearLayout) itemView.findViewById(R.id.ll_cart);
             ivGoodsImg.setScaleType(ImageView.ScaleType.CENTER_CROP);
             ivGoodsImg.setCornerRadius(80);
 
@@ -210,7 +225,7 @@ public class CartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     if (result != null && result.isSuccess()) {
                         cartBean.setCount(cartBean.getCount() + 1);
                         context.sendBroadcast(new Intent(I.BROADCAST_UPDATE_CART));
-                        tvGoodCount.setText("(" + cartBean.getCount() + ")");
+                        tvGoodCount.setText("×" + cartBean.getCount() );
                         //  tvGoodPrize.setText("￥" + cartBean.getCount() * getPrice(cartBean.getGoods().getCurrencyPrice()));
                     }
                 }
@@ -239,8 +254,8 @@ public class CartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                         if (result != null && result.isSuccess()) {
                             cartBean.setCount(cartBean.getCount() - 1);
                             context.sendBroadcast(new Intent(I.BROADCAST_UPDATE_CART));
-                            tvGoodCount.setText("(" + cartBean.getCount() + ")");
-                            tvGoodPrize.setText("￥" + cartBean.getCount() * getPrice(cartBean.getGoods().getCurrencyPrice()));
+                            tvGoodCount.setText("×" + cartBean.getCount() );
+//                            tvGoodPrize.setText("￥" + cartBean.getCount() * getPrice(cartBean.getGoods().getCurrencyPrice()));
 
                         }
                     }

@@ -163,7 +163,7 @@ public class CategoryDetails extends AppCompatActivity {
     }
 
     private void initView() {
-
+        fagRlvNewgoods.setNestedScrollingEnabled(false);
         NewGoodsBeanlist = new ArrayList<>();
         mAdapter = new BoutiqueAdapter(this, NewGoodsBeanlist);
         layoutManger = new GridLayoutManager(this, I.COLUM_NUM, GridLayoutManager.VERTICAL, false);

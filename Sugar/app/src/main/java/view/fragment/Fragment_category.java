@@ -81,8 +81,8 @@ public class Fragment_category extends Fragment {
         FragmentMather fragmentmather = new FragmentMather(mId.get(6));
         Fragment_peishi fragmentpeishi = new Fragment_peishi(mId.get(7));
 
-        fragmentArrayList.add(fragmentzuiin);
         fragmentArrayList.add(fragmentmeizhuang);
+        fragmentArrayList.add(fragmentzuiin);
         fragmentArrayList.add(fragmetnlive);
         fragmentArrayList.add(fragmentcloth);
         fragmentArrayList.add(fragmentbag);

@@ -13,19 +13,25 @@ import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.Scroller;
-
 import com.makeramen.roundedimageview.RoundedImageView;
-
 import java.lang.reflect.Field;
 import java.util.Timer;
 import java.util.TimerTask;
-
 import model.utils.ImageLoader;
 
 /**
- * 图片轮播
+ * All rights Reserved, Designed By www.tydic.com
+ *
+ * @version V1.0
+ * @Title: ${file_name}
+ * @Package ${package_name}
+ * @Description: ${todo}(用一句话描述该文件做什么)
+ * Created by guowang on 2017/4/21.
+ * @date: ${date} ${time}
+ * @Copyright: ${year} www.tydic.com Inc. All rights reserved.
  */
-public class SlideAutoLoopView extends ViewPager {
+
+public class LoopView extends ViewPager {
     Context mContext;
     /**
      * 自动播放的标识符
@@ -38,7 +44,7 @@ public class SlideAutoLoopView extends ViewPager {
     /**
      * 轮播图片的适配器
      */
-    SlideAutoLooopAdapter mAdapter;
+    LoopView.SlideAutoLooopAdapter mAdapter;
     /**
      * 图片数量
      */
@@ -50,12 +56,12 @@ public class SlideAutoLoopView extends ViewPager {
     /**
      * 相册的图片下载地址数组
      */
-    String[] mAlbumImgUrl;
+    int[] mAlbumImgUrl;
     Timer mTimer;
     Handler mHandler;
     boolean mAutoSwitch = false;
 
-    public SlideAutoLoopView(Context context, AttributeSet attrs) {
+    public LoopView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
         initHandler();
@@ -118,10 +124,10 @@ public class SlideAutoLoopView extends ViewPager {
                         mAutoSwitch = true;//设置为自动播放状态
                     } else {//设置为下一个item
                         //取出当前item的下标
-                        int currentItem = SlideAutoLoopView.this.getCurrentItem();
+                        int currentItem = LoopView.this.getCurrentItem();
                         currentItem++;//递增
                         //设置当前item为下一个
-                        SlideAutoLoopView.this.setCurrentItem(currentItem);
+                        LoopView.this.setCurrentItem(currentItem);
                     }
                 }
             }
@@ -133,11 +139,11 @@ public class SlideAutoLoopView extends ViewPager {
      */
     class SlideAutoLooopAdapter extends PagerAdapter {
         Context context;
-        String[] albumImgUrl;
+        int[] albumImgUrl;
         int count;
         ImageLoader imageLoader;
 
-        public SlideAutoLooopAdapter(Context context, String[] albumImgUrl,
+        public SlideAutoLooopAdapter(Context context, int[] albumImgUrl,
                                      int count) {
             super();
             this.context = context;
@@ -163,30 +169,11 @@ public class SlideAutoLoopView extends ViewPager {
         public Object instantiateItem(ViewGroup container, int position) {
             final RoundedImageView iv = new RoundedImageView(context);
             iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            iv.setCornerRadius(30);
+            iv.setCornerRadius(0);
             LayoutParams params = new LayoutParams();
             iv.setLayoutParams(params);
-            String imgUrl = albumImgUrl[position % count];
-            String imgName = "images/" + imgUrl;
-//            String url= I.DOWNLOAD_ALBUM_IMG_URL+imgUrl;
-//            Bitmap bitmap = imageLoader.displayImage(url, imgName, Utils.px2dp(context, 260), Utils.px2dp(context, 200), newgoods OnImageLoadListener() {
-//                @Override
-//                public void onSuccess(String path, Bitmap bitmap) {
-//                    iv.setImageBitmap(bitmap);
-//                }
-//
-//                @Override
-//                public void error(String errorMsg) {
-//                    // TODO Auto-generated method stub
-//
-//                }
-//            });
-//            if(bitmap==null){
-//                iv.setImageResource(R.drawable.nopic);
-//            }else{
-//                iv.setImageBitmap(bitmap);
-//            }
-            ImageLoader.downloadImg(context, iv, imgUrl, true);
+            int imgUrl = albumImgUrl[position % count];
+            iv.setImageResource(imgUrl);
             container.addView(iv);
             return iv;
         }
@@ -200,30 +187,24 @@ public class SlideAutoLoopView extends ViewPager {
     /**
      * 开始图片的轮播
      */
-    public void startPlayLoop(FlowIndicator flowIndicator, String[] albumImgUrl, int count) {
+    public void startPlayLoop(FlowIndicator flowIndicator, int[] albumImgUrl, int count) {
         if (mAdapter == null) {
             mCount = count;
             this.mFlowIndicator = flowIndicator;
             mFlowIndicator.setCount(count);
             mFlowIndicator.setFocus(0);
             this.mAlbumImgUrl = albumImgUrl;
-            mAdapter = new SlideAutoLooopAdapter(mContext, mAlbumImgUrl, count);
+            mAdapter = new LoopView.SlideAutoLooopAdapter(mContext, mAlbumImgUrl, count);
             this.setAdapter(mAdapter);
 
             try {
                 Field field = ViewPager.class.getDeclaredField("mScroller");
                 field.setAccessible(true);
-                MyScroller scroller = new MyScroller(mContext, new LinearInterpolator());
+                LoopView.MyScroller scroller = new LoopView.MyScroller(mContext, new LinearInterpolator());
                 scroller.setDuration(500);
                 scroller.startScroll(0, 0, 50, 0);
                 field.set(this, scroller);
-            } catch (NoSuchFieldException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (IllegalArgumentException e) {
+            } catch (NoSuchFieldException | IllegalAccessException | IllegalArgumentException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }

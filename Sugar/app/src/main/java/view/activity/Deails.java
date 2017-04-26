@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import butterknife.Bind;
@@ -62,6 +64,18 @@ public class Deails extends AppCompatActivity {
     IModelCollections collections;
     IModelCart cart;
     IModleNewGoods newGoods;
+    @Bind(R.id.iv_share)
+    ImageView ivShare;
+    @Bind(R.id.LL)
+    RelativeLayout LL;
+    @Bind(R.id.ll_collect)
+    LinearLayout llCollect;
+    @Bind(R.id.iv_main_cart)
+    ImageView ivMainCart;
+    @Bind(R.id.textView)
+    TextView textView;
+    @Bind(R.id.ll_cart)
+    LinearLayout llCart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,13 +143,13 @@ public class Deails extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.iv_back, R.id.iv_main_cart, R.id.iv_collect, R.id.iv_share})
+    @OnClick({R.id.iv_back, R.id.iv_main_cart, R.id.iv_collect, R.id.iv_share,R.id.ll_cart, R.id.ll_collect})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_back:
                 this.finish();
                 break;
-            case R.id.iv_main_cart:
+            case R.id.ll_cart:
                 UserBean userBean = SugarApplication.getUserBean();
                 if (userBean != null) {
                     cart.addCar(mComtext, goodId, userBean.getMuserName(), new OkHttpUtils.OnCompleteListener<MessageBean>() {
@@ -158,7 +172,7 @@ public class Deails extends AppCompatActivity {
                 }
 
                 break;
-            case R.id.iv_collect:
+            case R.id.ll_collect:
                 if (isCollected) {
                     deleteCollected();
                 } else {
@@ -271,6 +285,8 @@ public class Deails extends AppCompatActivity {
             });
         }
     }
+
+
 
 //    @Override
 //    public void showError(String error) {

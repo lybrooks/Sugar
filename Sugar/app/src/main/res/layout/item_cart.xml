@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_cart"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="100dp"
     android:layout_margin="5dp"
     android:background="@color/good_detail_bg_white"
     android:orientation="vertical">
@@ -9,21 +10,21 @@
     <RelativeLayout
         android:id="@+id/RL_Catr"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <CheckBox
             android:id="@+id/cb_checkBox"
+            style="@style/CustomCheckboxTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="5dp"
-            style="@style/CustomCheckboxTheme"
-            />
+            android:layout_marginLeft="5dp" />
 
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/iv_goods_img"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
             android:layout_toRightOf="@+id/cb_checkBox"
             android:src="@drawable/nopic" />
@@ -39,36 +40,39 @@
                 android:id="@+id/tv_good_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="20dp"
+                android:maxEms="8"
                 android:textSize="12sp" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_good_name"
                 android:layout_marginTop="5dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:weightSum="1">
 
                 <ImageView
                     android:id="@+id/iv_addcart"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="25dp"
                     android:layout_marginLeft="10dp"
+                    android:layout_weight="0.45"
                     android:src="@mipmap/add_cart" />
 
                 <TextView
                     android:id="@+id/tv_good_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="10dp"
-                    android:layout_toRightOf="@+id/iv_addcart"
-                    android:text="50" />
+                    android:layout_gravity="center_vertical"
+                    android:text="50"
+                    android:textSize="12sp" />
 
                 <ImageView
                     android:id="@+id/iv_deleteCart"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/tv_good_count"
+                    android:layout_height="25dp"
+                    android:layout_weight="0.45"
                     android:src="@mipmap/del_cart" />
             </LinearLayout>
         </RelativeLayout>
@@ -78,8 +82,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
             android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:text="我是价格"
             android:textSize="14sp" />
     </RelativeLayout>
 

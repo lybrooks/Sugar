@@ -1,5 +1,6 @@
 package view.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -18,12 +19,12 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.sugar.I;
 import cn.sugar.bean.UserBean;
+import day.sugar.R;
 import view.adapter.PersonAdapter;
 import view.fragment.Fragment_boutique;
 import view.fragment.Fragment_cart;
 import view.fragment.Fragment_category;
 import view.fragment.Fragment_newgoods;
-import day.sugar.R;
 
 
 public class MainActivity extends BaseActivity {
@@ -49,13 +50,21 @@ public class MainActivity extends BaseActivity {
     DrawerLayout dlMain;
     @Bind(R.id.tl_bottom)
     TabLayout tlBottom;
+    Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
         initView();
+        setListener();
+    }
+
+    private void setListener() {
+
+
     }
 
     private void initView() {
@@ -68,14 +77,18 @@ public class MainActivity extends BaseActivity {
         Fragment_cart cart = new Fragment_cart();
         //  Fragment_personal personal = newgoods Fragment_personal();
 
-
         fragmentArrayList.add(newgoods);
-        fragmentArrayList.add(boutique);
         fragmentArrayList.add(category);
+        fragmentArrayList.add(boutique);
         fragmentArrayList.add(cart);
         // fragmentArrayList.add(personal);
 
         fragmentManager = getSupportFragmentManager();
+        manager = new LinearLayoutManager(context);
+        userBean = SugarApplication.getUserBean();
+        mAdapter = new PersonAdapter(context, userBean, dlMain, rlvPerson);
+        rlvPerson.setLayoutManager(manager);
+        rlvPerson.setAdapter(mAdapter);
 
         MyViewPage VP_Adapter = new MyViewPage(fragmentManager, fragmentArrayList, mTitle);
         mVP.setAdapter(VP_Adapter);
@@ -83,12 +96,6 @@ public class MainActivity extends BaseActivity {
         tlBottom.setTabMode(TabLayout.GRAVITY_CENTER);
         tlBottom.setupWithViewPager(mVP);
 
-
-        manager = new LinearLayoutManager(this);
-        userBean = SugarApplication.getUserBean();
-        mAdapter = new PersonAdapter(this, userBean);
-        rlvPerson.setLayoutManager(manager);
-        rlvPerson.setAdapter(mAdapter);
 
         tlBottom.getTabAt(0).setIcon(R.drawable.newgoods).setText(null);
         tlBottom.getTabAt(1).setIcon(R.drawable.jingxuan).setText(null);

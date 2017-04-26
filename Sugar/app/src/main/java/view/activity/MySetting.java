@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -18,6 +19,7 @@ import butterknife.OnClick;
 import cn.sugar.I;
 import cn.sugar.bean.Result;
 import cn.sugar.bean.UserBean;
+import day.sugar.R;
 import model.net.IModelLogin;
 import model.net.ModelLogin;
 import model.utils.CommonUtils;
@@ -28,7 +30,6 @@ import model.utils.OkHttpUtils;
 import model.utils.OnSetAvatarListener;
 import model.utils.ResultUtils;
 import model.utils.SharedPerfenceUtils;
-import day.sugar.R;
 
 public class MySetting extends AppCompatActivity {
 
@@ -72,6 +73,7 @@ public class MySetting extends AppCompatActivity {
         } else {
             showInfo();
         }
+
     }
 
     @Override
@@ -80,10 +82,28 @@ public class MySetting extends AppCompatActivity {
         showInfo();
     }
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+
+                break;
+
+        }
+
+        return super.onTouchEvent(event);
+
+    }
+
     private void showInfo() {
         userBean = SugarApplication.getUserBean();
         tvUsername.setText(userBean.getMuserName());
-        tvUserNick.setText(userBean.getMuserNick());
+        if(userBean.getMuserNick()==null&&userBean.getMuserNick()==""){
+            tvUserNick.setHint("请设置您的昵称");
+        }else {
+            tvUserNick.setText(userBean.getMuserNick());
+        }
+//        tvUserNick.setText("昵称");
         ImageLoader.setAcatar(ImageLoader.getAcatarUrl(userBean), mContext, ivUserAvatar);
     }
 

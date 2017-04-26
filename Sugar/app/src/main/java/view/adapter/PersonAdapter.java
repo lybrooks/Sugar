@@ -3,6 +3,7 @@ package view.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -34,10 +35,14 @@ import view.activity.SugarApplication;
 
 public class PersonAdapter extends RecyclerView.Adapter {
     UserBean mBean;
+    DrawerLayout dl;
+    RecyclerView rlv;
 
-    public PersonAdapter(Context context, UserBean bean) {
+    public PersonAdapter(Context context, UserBean bean, DrawerLayout dl, RecyclerView rlv) {
         this.context = context;
         this.mBean = bean;
+        this.dl = dl;
+        this.rlv = rlv;
     }
 
     Context context;
@@ -78,19 +83,44 @@ public class PersonAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         if (holder instanceof HeaderHolder && position == 0) {
-            HeaderHolder holder1 = (HeaderHolder) holder;
+            final HeaderHolder holder1 = (HeaderHolder) holder;
             if (mBean != null && mBean.getMavatarSuffix() != null) {
-                Glide.with(getContext()).load(ImageLoader.getAcatarUrl(mBean)).into(holder1.Avatar);
-                if (mBean.getMuserNick() != null) {
-                    ((HeaderHolder) holder).Nick.setText(mBean.getMuserNick());
-                }
+                dl.setDrawerListener(new DrawerLayout.DrawerListener() {
+                    @Override
+                    public void onDrawerSlide(View drawerView, float slideOffset) {
+                        if (slideOffset == 1) {
+                            Glide.with(getContext()).load(ImageLoader.getAcatarUrl(mBean)).into(holder1.Avatar);
+                            if (mBean.getMuserNick() != null) {
+                                holder1.Nick.setText(mBean.getMuserNick());
+                            }
+
+                        }
+                    }
+
+                    @Override
+                    public void onDrawerOpened(View drawerView) {
+
+                    }
+
+                    @Override
+                    public void onDrawerClosed(View drawerView) {
+
+                    }
+
+                    @Override
+                    public void onDrawerStateChanged(int newState) {
+
+                    }
+                });
+
             }
             ((HeaderHolder) holder).Avatar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     MFGT.goSettingActivity((Activity) getContext());
+                    dl.closeDrawer(rlv);
                 }
             });
         }
@@ -104,9 +134,11 @@ public class PersonAdapter extends RecyclerView.Adapter {
                     switch (position - 1) {
                         case 0:
                             MFGT.goSettingActivity((Activity) getContext());
+                            dl.closeDrawer(rlv);
                             break;
                         case 1:
                             MFGT.gotoCollection((Activity) getContext());
+                            dl.closeDrawer(rlv);
                             break;
                         case 2:
                             showNormalDialog();
