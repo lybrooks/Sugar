@@ -198,9 +198,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#36d74607"
+        android:background="#360863f4"
         android:text="返回"
-        android:textColor="#100f0f"
+        android:textColor="#3e3b3b"
         android:textSize="20sp" />
 
 

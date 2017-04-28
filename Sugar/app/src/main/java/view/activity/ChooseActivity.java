@@ -25,7 +25,7 @@ public class ChooseActivity extends BaseActivity {
     private ArrayList<View> viewList;//view数组
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose);
         ButterKnife.bind(this);

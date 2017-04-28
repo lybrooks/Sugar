@@ -12,7 +12,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="50dp"
         android:background="@color/good_detail_bg_white"
         android:orientation="horizontal">
 
@@ -45,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.6"
-            android:background="#4fd74607"
+            android:background="#4f097bf5"
             android:text="结算"
             android:textSize="15sp" />
     </LinearLayout>
@@ -63,14 +62,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:background="#4fd74607"
-                android:gravity="center"
-                android:text="全部订单"
-                android:textColor="#d2101010"
-                android:textSize="15dp" />
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="30dp"-->
+                <!--android:background="#4fd74607"-->
+                <!--android:gravity="center"-->
+                <!--android:text="全部订单"-->
+                <!--android:textColor="#d2101010"-->
+                <!--android:textSize="15dp" />-->
 
             <ScrollView
                 android:id="@+id/scroll"
@@ -112,7 +111,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:text="@string/carthelp"
-                        android:textColor="#a9fd6100"
+                        android:textColor="#a90862f4"
                         android:textSize="15sp" />
 
                     <android.support.v7.widget.RecyclerView

@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import cn.sugar.I;
 import cn.sugar.bean.UserBean;
 import day.sugar.R;
@@ -31,7 +32,7 @@ public class MainActivity extends BaseActivity {
 
     FragmentManager fragmentManager;
     ArrayList<Fragment> fragmentArrayList = new ArrayList<>();
-//    @Bind(R.id.main_fragment)
+    //    @Bind(R.id.main_fragment)
     public static ViewPager mVP;
 
     UserBean userBean;
@@ -96,12 +97,14 @@ public class MainActivity extends BaseActivity {
         tlBottom.setTabsFromPagerAdapter(VP_Adapter);
         tlBottom.setTabMode(TabLayout.GRAVITY_CENTER);
         tlBottom.setupWithViewPager(mVP);
-
-
-        tlBottom.getTabAt(0).setIcon(R.drawable.newgoods).setText(null);
-        tlBottom.getTabAt(1).setIcon(R.drawable.jingxuan).setText(null);
-        tlBottom.getTabAt(2).setIcon(R.drawable.shop_select).setText(null);
-        tlBottom.getTabAt(3).setIcon(R.drawable.cart).setText(null);
+//.setIcon(R.drawable.newgoods)
+        tlBottom.getTabAt(0).setText("新品");
+//        .setIcon(R.drawable.jingxuan)
+        tlBottom.getTabAt(1).setText("分类");
+//        .setIcon(R.drawable.shop_select)
+        tlBottom.getTabAt(2).setText("推荐");
+//        .setIcon(R.drawable.cart)
+        tlBottom.getTabAt(3).setText(mTitle[3]);
 
     }
 
@@ -125,51 +128,25 @@ public class MainActivity extends BaseActivity {
         userBean = SugarApplication.getUserBean();
         if (userBean != null) {
             mAdapter.updateMessage(userBean);
-//            ImageLoader.setAcatar(ImageLoader.getAcatarUrl(userBean), this, ivPersonalAvatar);
-//            tvPersonalUserName.setText(userBean.getMuserNick());
-            //           downCollectCounts();
-            //         updateUserMessages();
+
         }
     }
 
-//    private static boolean isExit = false;
-//
-//    Handler mHandler = new Handler() {
-//
-//        @Override
-//        public void handleMessage(Message msg) {
-//            super.handleMessage(msg);
-//            isExit = false;
-//        }
-//    };
-//
-//    @Override
-//    public boolean onKeyDown(int keyCode, KeyEvent event) {
-//        if (keyCode == KeyEvent.KEYCODE_BACK) {
-//            exit();
-//            return false;
-//        }
-//        return super.onKeyDown(keyCode, event);
-//    }
-//
-//    private void exit() {
-//        if (!isExit) {
-//            isExit = true;
-//            Toast.makeText(getApplicationContext(), "再按一次退出程序",
-//                    Toast.LENGTH_SHORT).show();
-//            // 利用handler延迟发送更改状态信息
-//            mHandler.sendEmptyMessageDelayed(0, 2000);
-//        } else {
-//            finish();
-//            System.exit(0);
-//        }
-//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == I.REQUEST_CODE_LOGIN && SugarApplication.getUserBean() != null) {
             index = 2;
+        }
+    }
+
+    @OnClick(R.id.iv_menu)
+    public void onClick() {
+        if(dlMain.isDrawerOpen(rlvPerson)){
+            dlMain.closeDrawer(rlvPerson);
+        }else {
+            dlMain.openDrawer(rlvPerson);
         }
     }
 
