@@ -132,6 +132,8 @@ public class Fragment_newgoods extends Fragment {
         fid.setVisibility(View.VISIBLE);
         mtextView.setVisibility(View.VISIBLE);
         newgoodSlv.startPlayLoop(fid, img, 4);
+
+
         mrv.setNestedScrollingEnabled(false);
         srl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

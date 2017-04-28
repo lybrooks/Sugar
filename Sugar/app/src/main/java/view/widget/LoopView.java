@@ -13,11 +13,12 @@ import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.Scroller;
+
 import com.makeramen.roundedimageview.RoundedImageView;
+
 import java.lang.reflect.Field;
 import java.util.Timer;
 import java.util.TimerTask;
-import model.utils.ImageLoader;
 
 /**
  * All rights Reserved, Designed By www.tydic.com
@@ -52,7 +53,7 @@ public class LoopView extends ViewPager {
     /**
      * 图片轮播间隔时间
      */
-    int mDuration = 4000;
+    int mDuration = 3000;
     /**
      * 相册的图片下载地址数组
      */
@@ -141,7 +142,6 @@ public class LoopView extends ViewPager {
         Context context;
         int[] albumImgUrl;
         int count;
-        ImageLoader imageLoader;
 
         public SlideAutoLooopAdapter(Context context, int[] albumImgUrl,
                                      int count) {

@@ -31,8 +31,8 @@ public class MainActivity extends BaseActivity {
 
     FragmentManager fragmentManager;
     ArrayList<Fragment> fragmentArrayList = new ArrayList<>();
-    @Bind(R.id.main_fragment)
-    ViewPager mVP;
+//    @Bind(R.id.main_fragment)
+    public static ViewPager mVP;
 
     UserBean userBean;
     int index;
@@ -56,6 +56,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mVP = (ViewPager) findViewById(R.id.main_fragment);
         ButterKnife.bind(this);
 
         initView();

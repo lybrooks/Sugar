@@ -86,7 +86,6 @@ public class UpdateNick extends AppCompatActivity {
                     @Override
                     public void onSuccess(String s) {
                         Result result = ResultUtils.getResultFromJson(s, UserBean.class);
-                        L.e("UpdateNick:"+result.toString());
                         if (result == null) {
                             CommonUtils.showLongToast("修改昵称失败");
                         } else {

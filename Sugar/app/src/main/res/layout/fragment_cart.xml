@@ -45,8 +45,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.6"
-            android:background="#a7d74607"
-            android:text="结账"
+            android:background="#4fd74607"
+            android:text="结算"
             android:textSize="15sp" />
     </LinearLayout>
 
@@ -66,10 +66,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:background="#a7d74607"
+                android:background="#4fd74607"
                 android:gravity="center"
                 android:text="全部订单"
-                android:textColor="#d2c1b4"
+                android:textColor="#d2101010"
                 android:textSize="15dp" />
 
             <ScrollView

@@ -28,4 +28,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="refresh">刷新中...</string>
     <string name="carthelp">→购物车帮你挑←</string>
+    <string name="refreshing">刷新中...</string>
 </resources>

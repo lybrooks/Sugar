@@ -161,7 +161,6 @@ public class Collections extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        L.e("onResume");
         initData(I.ACTION_DOWNLOAD, PageId);
     }
 }

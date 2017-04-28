@@ -21,10 +21,6 @@ import cn.sugar.bean.NewGoodsBean;
 import day.sugar.R;
 import model.utils.ImageLoader;
 
-/**
- * Created by Administrator on 2016/10/18.
- */
-
 
 public class BoutiqueAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 

@@ -4,7 +4,6 @@ import android.widget.Toast;
 
 import view.activity.SugarApplication;
 
-//import cn.ucai.fulicenter.SugarApplication;
 
 public class CommonUtils {
     public static void showLongToast(String msg){

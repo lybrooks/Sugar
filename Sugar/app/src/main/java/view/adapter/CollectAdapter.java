@@ -26,10 +26,6 @@ import model.utils.ImageLoader;
 import model.utils.L;
 import model.utils.OkHttpUtils;
 
-/**
- * Created by Administrator on 2016/10/18.
- */
-
 
 public class CollectAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 

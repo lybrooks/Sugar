@@ -14,25 +14,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <view.widget.LoopView
-                android:id="@+id/newgood_slv"
-                android:layout_width="wrap_content"
-                android:layout_height="140dp"
-                android:background="@color/good_detail_bg_white"
-                android:visibility="gone"
-                />
-
-            <view.widget.FlowIndicator
-                android:visibility="gone"
-                android:id="@+id/fid"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                app:focus_color="#f9ebeb"
-                app:normal_color="#f92504"
-                app:r="4dp"
-                app:space="2dp" />
-
             <TextView
                 android:id="@+id/tv_refresh"
                 android:layout_width="wrap_content"
@@ -41,20 +22,39 @@
                 android:text="@string/refresh"
                 android:visibility="gone" />
 
+            <view.widget.LoopView
+                android:id="@+id/newgood_slv"
+                android:layout_width="wrap_content"
+                android:layout_height="140dp"
+                android:background="@color/good_detail_bg_white"
+                android:visibility="gone" />
+
+            <view.widget.FlowIndicator
+                android:id="@+id/fid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:visibility="gone"
+                app:focus_color="#f9ebeb"
+                app:normal_color="#f92504"
+                app:r="4dp"
+                app:space="2dp" />
+
+
             <TextView
                 android:id="@+id/text_view"
-                android:layout_marginTop="2dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:visibility="gone"
-                android:text="精心为您挑选" />
+                android:layout_marginTop="2dp"
+                android:text="精心为您挑选"
+                android:visibility="gone" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#e4dede"
                 android:layout_margin="3dp"
-                />
+                android:background="#e4dede" />
 
             <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
