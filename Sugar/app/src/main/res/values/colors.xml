@@ -43,7 +43,7 @@
     <color name="good_detail_bg">#F2F2F2</color>
     <color name="good_detail_bg_white">#FFFFFF</color>
     <color name="good_detail_currency_price">#CC2E2E</color>
-    <color name="good_detaul_flow_indicator_focus">#c6f5dd03</color>
+    <color name="good_detaul_flow_indicator_focus">#c6dad496</color>
     <color name="cart_buy_bg">#FF8000</color>
     <color name="list_item_title">#ED6F73</color>
     <color name="list_item_name">#131313</color>
